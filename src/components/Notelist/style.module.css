@@ -1,0 +1,84 @@
+.noteList {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(236, 240, 241);
+}
+
+.noteList__header {
+  background-color: rgb(99, 138, 165);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.notelist__searchGroup {
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.noteList__searchInput {
+  margin-bottom: 0;
+}
+
+.noteList__searchImg {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.noteList__title {
+  margin: 0;
+}
+
+.noteList__control {
+  display: flex;
+}
+
+.noteList__logout {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.noteList__logout:hover {
+  color: rgb(233, 233, 233);
+}
+
+.noteList__list {
+  padding: 10px;
+}
+
+.noteList__addNote {
+  position: fixed;
+  right: 50%;
+  bottom: 40px;
+  background-color: rgb(233, 75, 63);
+  border-radius: 50%;
+  border: none;
+  text-align: center;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+  transform: translateX(50%);
+}
+
+.noteList__addNote:hover {
+  background-color: rgb(231, 116, 108);
+}
+
+.noteList__addNote:active {
+  transform: translateY(2px);
+}

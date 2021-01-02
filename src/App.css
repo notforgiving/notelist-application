@@ -1,0 +1,38 @@
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 14px;
+}
+
+.form__input{
+  width: 100%;
+  margin-bottom: 20px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(197, 200, 201);
+  outline: none;
+  padding-left: 10px;
+}
+
+.form__btn{
+  background-color: rgb(233, 75, 63);
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  color: #fff;
+  padding: 10px 50px;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.form__btn:hover{
+  background-color: rgb(231, 116, 108);
+}
+.form__btn:active{
+  transform: translateY(2px);
+}

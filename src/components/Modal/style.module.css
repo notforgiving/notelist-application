@@ -1,0 +1,12 @@
+.form__block {
+  width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(236, 240, 241);
+  border-radius: 10px;
+  /* border-top: 4px solid rgb(209, 89, 79); */
+  margin: 0 10px;
+  box-shadow: 0px 1px 39px 5px rgba(199, 0, 0, 0.13);
+}

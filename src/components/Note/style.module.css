@@ -1,0 +1,57 @@
+.noteList__note {
+  background-color: #fff;
+  display: flex;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.note__cicle {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.note__cicleBody {
+  background-color: #443399;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.note__data {
+  flex: 1;
+}
+
+.note__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.692);
+  margin-bottom: 20px;
+}
+
+.note__description {
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.892);
+}
+
+.note__time {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, 0.363);
+}
+
+.note__timeDate {
+  margin: 0;
+}
+
+.note__timeOld {
+  margin: 0;
+  text-align: right;
+  font-style: 14px;
+  color: rgba(0, 0, 0, 0.363);
+}
