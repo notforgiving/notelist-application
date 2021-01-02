@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./style.module.css";
 import Search from "../../assets/img/search.svg";
 import Note from "../Note";
 import Add from "../Add";
 import { useDispatch } from "react-redux";
 import { logoutactioncreactor } from "../../redux/action/login";
-import classNames from 'classnames'
+import classNames from "classnames";
+import firebase from "firebase";
 
 function Notelist() {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
+  const [notes, setNotes] = useState({});
+
+  useEffect(() => {
+    const db = firebase.database();
+    const notesRef = db.ref("notes");
+    const notesVal = notesRef.on("value", (elem) => setNotes(elem.val()));
+  }, []);
+
+  console.log(notes)
 
   const handleConrolModal = (): void => {
     setModal(!modal);
@@ -31,7 +41,7 @@ function Notelist() {
       </div>
       <div className={style.notelist__searchGroup}>
         <input
-          className={classNames("form__input",style.noteList__searchInput)}
+          className={classNames("form__input", style.noteList__searchInput)}
           type="text"
           placeholder="Название заметки"
         />

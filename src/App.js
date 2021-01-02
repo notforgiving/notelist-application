@@ -11,7 +11,7 @@ function App() {
   }, []);
 
   const { auth } = useSelector((state) => state);
-  return <div className="App">{true ? <Notelist /> : <Loginform />}</div>;
+  return <div className="App">{auth.login ? <Notelist /> : <Loginform />}</div>;
 }
 
 export default App;

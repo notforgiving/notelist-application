@@ -1,5 +1,5 @@
 const initialState = {
-  login: false,
+  login: null,
 };
 
 const auth = (state = initialState, action) => {
