@@ -1,17 +1,16 @@
-import React, { useState} from "react";
+import { useState} from "react";
 import { useDispatch } from "react-redux";
-import Modal from "../Modal";
-import style from "./style.module.css";
 import firebase from "firebase";
+
+import style from "./style.module.css";
+import Modal from "../Modal";
 import {loginactioncreactor} from '../../redux/action/login'
 
 function Loginform() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-
-
-
+  
   const createAccaunt = (): void => {
     firebase
       .auth()

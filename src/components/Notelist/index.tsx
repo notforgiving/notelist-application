@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import style from "./style.module.css";
 import Search from "../../assets/img/search.svg";
 import Note from "../Note";
 import Add from "../Add";
-import { useDispatch } from "react-redux";
+import Exit from "../../assets/img/exit.svg";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutactioncreactor } from "../../redux/action/login";
 import classNames from "classnames";
 import firebase from "firebase";
+import { notesactioncreator } from "./../../redux/action/setnotes";
 
 function Notelist() {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
-  const [notes, setNotes] = useState({});
+
+  const { notes }: any = useSelector((state) => state);
 
   useEffect(() => {
     const db = firebase.database();
     const notesRef = db.ref("notes");
-    const notesVal = notesRef.on("value", (elem) => setNotes(elem.val()));
+    const notesVal = notesRef.on("value", (elem) =>
+      dispatch(notesactioncreator(elem.val()))
+    );
   }, []);
-
-  console.log(notes)
 
   const handleConrolModal = (): void => {
     setModal(!modal);
@@ -35,7 +38,7 @@ function Notelist() {
         <h1 className={style.noteList__title}>Заметки</h1>
         <div className={style.noteList__control}>
           <button onClick={logout} className={style.noteList__logout}>
-            Выйти
+            <img style={{ width: 20 }} src={Exit} alt="Exit" />
           </button>
         </div>
       </div>
@@ -43,14 +46,20 @@ function Notelist() {
         <input
           className={classNames("form__input", style.noteList__searchInput)}
           type="text"
-          placeholder="Название заметки"
         />
-        <img className={style.noteList__searchImg} src={Search} />
       </div>
 
       <div className={style.noteList__list}>
-        <Note />
-        <Note />
+        {notes.items.map((item: any, index: number) => {
+          return (
+            <Note
+              key={`${index}${item.title}`}
+              title={item.title}
+              date={item.date}
+              description={item.description}
+            />
+          );
+        })}
       </div>
       {modal ? (
         <Add control={handleConrolModal} />

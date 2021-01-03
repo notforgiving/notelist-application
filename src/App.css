@@ -1,4 +1,4 @@
-.App{
+.App {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,33 +6,40 @@
   font-size: 14px;
 }
 
-.form__input{
+.form__input {
   width: 100%;
   margin-bottom: 20px;
   height: 30px;
-  border-radius: 5px;
   border: 1px solid rgb(197, 200, 201);
   outline: none;
-  padding-left: 10px;
+  padding-left: 13px;
+  background: #f8f8f8;
+  box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color: #7e8fb6;
 }
 
-.form__btn{
-  background-color: rgb(233, 75, 63);
-  border-radius: 5px;
+.form__input::placeholder {
+  font-size: 13px;
+  color: #91a6d3;
+}
+
+.form__btn {
+  background-color: #eb534b;
+  box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
   border: none;
   text-align: center;
   color: #fff;
-  padding: 10px 50px;
+  padding: 14px 86px;
   outline: none;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 13px;
   transition: 0.3s;
-  margin-top: 20px;
-  margin-bottom: 40px;
 }
-.form__btn:hover{
+.form__btn:hover {
   background-color: rgb(231, 116, 108);
 }
-.form__btn:active{
+.form__btn:active {
   transform: translateY(2px);
 }

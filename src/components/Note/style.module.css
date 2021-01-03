@@ -1,9 +1,12 @@
 .noteList__note {
-  background-color: #fff;
   display: flex;
-  border-radius: 10px;
-  padding: 10px 15px;
+
+  padding: 5px 15px 10px 0px;
   margin-bottom: 10px;
+
+  background: #F8F8F8;
+  box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
 .note__cicle {
@@ -14,9 +17,9 @@
 }
 
 .note__cicleBody {
-  background-color: #443399;
-  width: 30px;
-  height: 30px;
+  background-color: #F5BD41;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
 }
 
@@ -28,15 +31,16 @@
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.692);
-  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .note__description {
   margin: 0;
-  font-size: 18px;
+  font-size: 13px;
   margin-bottom: 10px;
-  color: rgba(0, 0, 0, 0.892);
+  color: rgba(0, 0, 0, 1);
 }
 
 .note__time {
@@ -47,11 +51,14 @@
 
 .note__timeDate {
   margin: 0;
+  color: #203460;
+  font-size: 13px;
+  margin-top: 15px;
 }
 
 .note__timeOld {
   margin: 0;
   text-align: right;
-  font-style: 14px;
-  color: rgba(0, 0, 0, 0.363);
+  font-size: 11px;
+  color: #91A6D3;
 }
