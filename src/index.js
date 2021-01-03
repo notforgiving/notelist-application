@@ -9,7 +9,7 @@ import "firebase/firestore";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCLL1slmR7bSnWgr6rrF0WTICOxh-8XhgE",
   authDomain: "note-aa0e5.firebaseapp.com",
   databaseURL: "https://note-aa0e5-default-rtdb.firebaseio.com",

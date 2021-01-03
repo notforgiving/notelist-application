@@ -33,7 +33,11 @@ function Notelist() {
   };
 
   const logout = (): void => {
-    dispatch(logoutactioncreactor(false));
+    firebase
+    .auth()
+    .signOut()
+    .then(response=>dispatch(logoutactioncreactor(false)))
+    .catch((error) => console.log(error))
   };
 
   return (

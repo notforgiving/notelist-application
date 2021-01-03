@@ -17,3 +17,15 @@
   width: 100%;
   margin-bottom: 31px;
 }
+
+.form__registrBtn{
+  color: #203460;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+}

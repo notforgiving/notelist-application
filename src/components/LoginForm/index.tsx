@@ -1,21 +1,34 @@
-import { useState} from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import firebase from "firebase";
 
 import style from "./style.module.css";
 import Modal from "../Modal";
-import {loginactioncreactor} from '../../redux/action/login'
+import { loginactioncreactor } from "../../redux/action/login";
 
 function Loginform() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  
-  const createAccaunt = (): void => {
+  const [action, setAction] = useState(false);
+
+  const enterInAccaunt = (): void => {
     firebase
       .auth()
       .signInWithEmailAndPassword(login, password)
-      .then(response=>dispatch(loginactioncreactor(true)))
+      .then((response) => dispatch(loginactioncreactor(true)))
+      .catch((error) => console.log(error));
+  };
+
+  const handleRegistrate = (): void => {
+    setAction(!action);
+  };
+
+  const createAccaunt = (): void => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(login, password)
+      .then((response) => dispatch(loginactioncreactor(true)))
       .catch((error) => console.log(error));
   };
 
@@ -29,7 +42,7 @@ function Loginform() {
 
   return (
     <Modal>
-      <h1 className={style.form__title}>Вход</h1>
+      <h1 className={style.form__title}>{action?'Регистрация':'Вход'}</h1>
       <div className={style.form__body}>
         <div className={style.form__inputGroup}>
           <input
@@ -47,8 +60,15 @@ function Loginform() {
             onChange={handleChangePassword}
           />
         </div>
-        <button onClick={createAccaunt} className="form__btn" type="submit">
-          Авторизация
+        <button
+          onClick={action ? createAccaunt  : enterInAccaunt}
+          className="form__btn"
+          type="submit"
+        >
+          {action?'Регистрация':'Авторизация'}
+        </button>
+        <button onClick={handleRegistrate} className={style.form__registrBtn}>
+        {action?'Вход':'Регистрация'}
         </button>
       </div>
     </Modal>
