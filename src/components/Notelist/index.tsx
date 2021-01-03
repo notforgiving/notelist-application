@@ -69,7 +69,8 @@ function Notelist() {
               description={item.description}
             />
           );
-        })}
+        })
+        }
       </div>
       {modal ? (
         <Add control={handleConrolModal} />

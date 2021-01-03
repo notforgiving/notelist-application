@@ -61,6 +61,8 @@
 
 .noteList__list {
   padding: 0 20px;
+  height: 75vh;
+  overflow: auto;
 }
 
 .noteList__addNote {
