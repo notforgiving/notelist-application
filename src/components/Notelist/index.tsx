@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import style from "./style.module.css";
-import Search from "../../assets/img/search.svg";
 import Note from "../Note";
 import Add from "../Add";
 import Exit from "../../assets/img/exit.svg";
@@ -13,19 +12,24 @@ import { notesactioncreator } from "./../../redux/action/setnotes";
 function Notelist() {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
+  const [searchText, setSearchText] = useState("");
 
   const { notes }: any = useSelector((state) => state);
 
   useEffect(() => {
     const db = firebase.database();
     const notesRef = db.ref("notes");
-    const notesVal = notesRef.on("value", (elem) =>
+    notesRef.on("value", (elem) =>
       dispatch(notesactioncreator(elem.val()))
     );
-  }, []);
+  }, [dispatch]);
 
   const handleConrolModal = (): void => {
     setModal(!modal);
+  };
+
+  const handleSearch = (e: any): void => {
+    setSearchText(e.target.value);
   };
 
   const logout = (): void => {
@@ -46,6 +50,8 @@ function Notelist() {
         <input
           className={classNames("form__input", style.noteList__searchInput)}
           type="text"
+          onChange={handleSearch}
+          value={searchText}
         />
       </div>
 
