@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #7382998c;
+  background-color: #e2e5eafa;
 }
 .add__title {
   color: rgb(99, 138, 165);
@@ -23,16 +23,19 @@
   flex-direction: column;
 }
 
+.btn__group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .add__close {
-  position: absolute;
-  top: calc(50% - 200px);
-  right: calc(50% - 220px);
   cursor: pointer;
-  font-size: 50px;
+  font-size: 43px;
   background-color: transparent;
   border: none;
   outline: none;
-  color: rgb(163, 28, 19);
+  color: rgba(0, 0, 0, 0.466);
   transform: rotate(45deg);
   transition: 0.2s;
 }

@@ -19,7 +19,13 @@ function Notelist() {
   useEffect(() => {
     const db = firebase.database();
     const notesRef = db.ref("notes");
-    notesRef.on("value", (elem) => dispatch(notesactioncreator(elem.val())));
+    notesRef.on("value", (elem) => {
+      if(elem.val()!=null){
+        dispatch(notesactioncreator(elem.val()))
+      }
+    }
+    
+    );
   }, [dispatch]);
 
   const handleConrolModal = (): void => {

@@ -9,6 +9,14 @@ const setnotes = (state = initialState, action) => {
         ...state,
         items: action.payload,
       };
+    case "ADD_NOTE":
+      return {
+        ...state,
+        items: [
+          ...state.items,
+          action.payload
+        ],
+      };
     default:
       return state;
   }
