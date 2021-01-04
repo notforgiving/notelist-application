@@ -9,8 +9,6 @@ function Add({ control }: any) {
   const [description, setDescription] = useState("");
   const { notes }: any = useSelector((state) => state);
 
-  console.log(notes.items.length);
-
   const handleChangeTitle = (e: any): void => {
     setTitle(e.target.value);
   };

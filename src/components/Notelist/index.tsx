@@ -64,7 +64,8 @@ function Notelist() {
       </div>
 
       <div className={style.noteList__list}>
-        {notes.items.map((item: any, index: number) => {
+        {
+        notes.items.map((item: any, index: number) => {
           if (
             item.title.includes(searchText) ||
             item.description.includes(searchText)
@@ -87,7 +88,10 @@ function Notelist() {
               />
             );
           }
-        })}
+          else return null;
+        })
+        
+        }
       </div>
       {modal ? (
         <Add control={handleConrolModal} />
