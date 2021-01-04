@@ -22,7 +22,7 @@ function Add({ control }: any) {
     const note = {
       date: Math.floor(Date.now() / 1000),
       description: description,
-      id: 6,
+      id: notes.items.length,
       title: title,
     };
     const notesRef = db.ref("notes");
@@ -31,7 +31,7 @@ function Add({ control }: any) {
       notesRef.push();
       notesRef.set([note]);
     } else {
-      notesRef.child(`${notes.items.length+1}`).set(note)
+      notesRef.child(`${notes.items.length}`).set(note)
     }
 
     control();
