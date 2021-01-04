@@ -19,9 +19,7 @@ function Notelist() {
   useEffect(() => {
     const db = firebase.database();
     const notesRef = db.ref("notes");
-    notesRef.on("value", (elem) =>
-      dispatch(notesactioncreator(elem.val()))
-    );
+    notesRef.on("value", (elem) => dispatch(notesactioncreator(elem.val())));
   }, [dispatch]);
 
   const handleConrolModal = (): void => {
@@ -34,10 +32,10 @@ function Notelist() {
 
   const logout = (): void => {
     firebase
-    .auth()
-    .signOut()
-    .then(response=>dispatch(logoutactioncreactor(false)))
-    .catch((error) => console.log(error))
+      .auth()
+      .signOut()
+      .then((response) => dispatch(logoutactioncreactor(false)))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -61,16 +59,29 @@ function Notelist() {
 
       <div className={style.noteList__list}>
         {notes.items.map((item: any, index: number) => {
-          return (
-            <Note
-              key={`${index}${item.title}`}
-              title={item.title}
-              date={item.date}
-              description={item.description}
-            />
-          );
-        })
-        }
+          if (
+            item.title.includes(searchText) ||
+            item.description.includes(searchText)
+          ) {
+            return (
+              <Note
+                key={`${index}${item.title}`}
+                title={item.title}
+                date={item.date}
+                description={item.description}
+              />
+            );
+          } else if (searchText === "") {
+            return (
+              <Note
+                key={`${index}${item.title}`}
+                title={item.title}
+                date={item.date}
+                description={item.description}
+              />
+            );
+          }
+        })}
       </div>
       {modal ? (
         <Add control={handleConrolModal} />
