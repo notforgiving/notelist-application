@@ -28,7 +28,9 @@ function Loginform() {
     firebase
       .auth()
       .createUserWithEmailAndPassword(login, password)
-      .then((response) => dispatch(loginactioncreactor(true)))
+      .then((response) => {
+        dispatch(loginactioncreactor(true));
+      })
       .catch((error) => console.log(error));
   };
 
@@ -42,7 +44,7 @@ function Loginform() {
 
   return (
     <Modal>
-      <h1 className={style.form__title}>{action?'Регистрация':'Вход'}</h1>
+      <h1 className={style.form__title}>{action ? "Регистрация" : "Вход"}</h1>
       <div className={style.form__body}>
         <div className={style.form__inputGroup}>
           <input
@@ -61,14 +63,14 @@ function Loginform() {
           />
         </div>
         <button
-          onClick={action ? createAccaunt  : enterInAccaunt}
+          onClick={action ? createAccaunt : enterInAccaunt}
           className="form__btn"
           type="submit"
         >
-          {action?'Регистрация':'Авторизация'}
+          {action ? "Регистрация" : "Авторизация"}
         </button>
         <button onClick={handleRegistrate} className={style.form__registrBtn}>
-        {action?'Вход':'Регистрация'}
+          {action ? "Вход" : "Регистрация"}
         </button>
       </div>
     </Modal>

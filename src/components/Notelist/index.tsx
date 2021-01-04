@@ -20,12 +20,10 @@ function Notelist() {
     const db = firebase.database();
     const notesRef = db.ref("notes");
     notesRef.on("value", (elem) => {
-      if(elem.val()!=null){
-        dispatch(notesactioncreator(elem.val()))
+      if (elem.val() != null) {
+        dispatch(notesactioncreator(elem.val()));
       }
-    }
-    
-    );
+    });
   }, [dispatch]);
 
   const handleConrolModal = (): void => {
@@ -40,7 +38,9 @@ function Notelist() {
     firebase
       .auth()
       .signOut()
-      .then((response) => dispatch(logoutactioncreactor(false)))
+      .then((response) => {
+        dispatch(logoutactioncreactor(false));
+      })
       .catch((error) => console.log(error));
   };
 
@@ -64,8 +64,7 @@ function Notelist() {
       </div>
 
       <div className={style.noteList__list}>
-        {
-        notes.items.map((item: any, index: number) => {
+        {notes.items.map((item: any, index: number) => {
           if (
             item.title.includes(searchText) ||
             item.description.includes(searchText)
@@ -87,11 +86,8 @@ function Notelist() {
                 description={item.description}
               />
             );
-          }
-          else return null;
-        })
-        
-        }
+          } else return null;
+        })}
       </div>
       {modal ? (
         <Add control={handleConrolModal} />
