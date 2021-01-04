@@ -8,8 +8,8 @@ interface iNoteProps {
 }
 
 function Note({ title, date, description }: iNoteProps) {
-  const dateinvalue = new Date(date - 3 * 3600 * 1000);
-  console.log(date)
+  const dateinvalue = new Date(((date + 3 * 3600)*1000));
+
   return (
     <div className={style.noteList__note}>
       <div className={style.note__cicle}>

@@ -6,10 +6,10 @@ import firebase from "firebase";
 
 function Add({ control }: any) {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("")
+  const [description, setDescription] = useState("");
   const { notes }: any = useSelector((state) => state);
 
-  console.log(notes.items.length)
+  console.log(notes.items.length);
 
   const handleChangeTitle = (e: any): void => {
     setTitle(e.target.value);
@@ -22,27 +22,27 @@ function Add({ control }: any) {
   const handleAddnote = (): void => {
     const db = firebase.database();
     const note = {
-      "date" : Math.floor(Date.now() / 1000),
-      "description" : description,
-      "id" : 6,
-      "title" : title
-    }
-    const notesRef = db.ref('notes');
+      date: Math.floor(Date.now() / 1000),
+      description: description,
+      id: 6,
+      title: title,
+    };
+    const notesRef = db.ref("notes");
 
-    if(notes.items.length===0){
-      notesRef.push()
+    if (notes.items.length === 0) {
+      notesRef.push();
       notesRef.set([note]);
+    } else {
+      notesRef.child(`${notes.items.length+1}`).set(note)
     }
-    else{
-     notesRef.push()
-      notesRef.set(note);
-    }
+
+    control();
   };
 
   return (
     <div className={style.add__block}>
       <Modal>
-        <form className={style.add__form}>
+        <div className={style.add__form}>
           <h1 className={style.add__title}>Создание заметки</h1>
           <input
             className="form__input"
@@ -66,7 +66,7 @@ function Add({ control }: any) {
               +
             </button>
           </div>
-        </form>
+        </div>
       </Modal>
     </div>
   );
