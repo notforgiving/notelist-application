@@ -1,10 +1,6 @@
 const initialState = {
-  login: null,
+  login: localStorage.getItem('auth'),
 };
-
-if(localStorage.getItem('auth')){
-  initialState.login = true
-}
 
 const auth = (state = initialState, action) => {
   switch (action.type) {

@@ -13,7 +13,6 @@ function Notelist() {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [searchText, setSearchText] = useState("");
-
   const { notes }: any = useSelector((state) => state);
 
   useEffect(() => {
