@@ -77,8 +77,9 @@
 
 .noteList__list {
   padding: 0 20px;
-  height: 75vh;
+  height: 80vh;
   overflow: auto;
+  padding-bottom: 60px;
 }
 
 .noteList__addNote {
