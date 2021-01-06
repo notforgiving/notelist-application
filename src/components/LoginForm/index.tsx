@@ -21,7 +21,10 @@ function Loginform() {
     firebase
       .auth()
       .signInWithEmailAndPassword(login, password)
-      .then((response) => dispatch(loginactioncreactor(true)))
+      .then((response) => {
+        dispatch(loginactioncreactor(true, login));
+      })
+      
       .catch((error) => {
         if (error.message.includes("password")) {
           setErrorPassword(error);
@@ -42,7 +45,7 @@ function Loginform() {
       .auth()
       .createUserWithEmailAndPassword(login, password)
       .then((response) => {
-        dispatch(loginactioncreactor(true));
+        dispatch(loginactioncreactor(true, login));
       })
       .catch((error) => {
         if (error.message.includes("Password")) {

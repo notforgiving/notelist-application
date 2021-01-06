@@ -14,11 +14,13 @@ function Notelist() {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const { notes }: any = useSelector((state) => state);
+  const { notes, auth }: any = useSelector((state) => state);
 
   useEffect(() => {
     const db = firebase.database();
-    const notesRef = db.ref("notes");
+    const login = auth.spaceName.replace('@','')
+    const dataUser = login.replace('.','')
+    const notesRef = db.ref(`${dataUser}/notes`);
     notesRef.on("value", (elem) => {
       if (elem.val() != null) {
         dispatch(notesactioncreator(elem.val()));
@@ -43,7 +45,7 @@ function Notelist() {
       .auth()
       .signOut()
       .then((response) => {
-        dispatch(logoutactioncreactor(false));
+        dispatch(logoutactioncreactor(false, null));
       })
       .catch((error) => console.log(error));
   };
@@ -80,7 +82,7 @@ function Notelist() {
       <div className={style.noteList__list}>
         {notes.items.map((item: any, index: number) => {
           if (
-            item.title.toLowerCase().includes(searchText.toLowerCase())||
+            item.title.toLowerCase().includes(searchText.toLowerCase()) ||
             item.description.toLowerCase().includes(searchText.toLowerCase())
           ) {
             return (

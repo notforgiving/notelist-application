@@ -7,7 +7,8 @@ import firebase from "firebase";
 function Add({ control }: any) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const { notes }: any = useSelector((state) => state);
+  const { notes,auth }: any = useSelector((state) => state);
+  const db = firebase.database();
 
   const handleChangeTitle = (e: any): void => {
     setTitle(e.target.value);
@@ -18,20 +19,20 @@ function Add({ control }: any) {
   };
 
   const handleAddnote = (): void => {
-    const db = firebase.database();
     const note = {
       date: Math.floor(Date.now() / 1000),
       description: description,
       id: notes.items.length,
       title: title,
     };
-    const notesRef = db.ref("notes");
 
+    const login = auth.spaceName.replace('@','')
+    const dataUser = db.ref(login.replace('.','')).child('notes')
     if (notes.items.length === 0) {
-      notesRef.push();
-      notesRef.set([note]);
+      dataUser.push();
+      dataUser.set([note])
     } else {
-      notesRef.child(`${notes.items.length}`).set(note)
+      dataUser.child(`${notes.items.length}`).set(note);
     }
 
     control();

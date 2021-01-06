@@ -1,9 +1,9 @@
-export const loginactioncreactor = (flag) => ({
+export const loginactioncreactor = (flag,space) => ({
   type: "LOGIN",
-  payload: flag
+  payload: {flag,space}
 });
 
-export const logoutactioncreactor = (flag) => ({
+export const logoutactioncreactor = (flag,space) => ({
   type: "LOGOUT",
-  payload: flag
+  payload: {flag,space}
 });
