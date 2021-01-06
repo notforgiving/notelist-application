@@ -80,8 +80,8 @@ function Notelist() {
       <div className={style.noteList__list}>
         {notes.items.map((item: any, index: number) => {
           if (
-            item.title.includes(searchText) ||
-            item.description.includes(searchText)
+            item.title.toLowerCase().includes(searchText.toLowerCase())||
+            item.description.toLowerCase().includes(searchText.toLowerCase())
           ) {
             return (
               <Note
