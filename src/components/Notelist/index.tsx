@@ -18,15 +18,15 @@ function Notelist() {
 
   useEffect(() => {
     const db = firebase.database();
-    const login = auth.spaceName.replace('@','')
-    const dataUser = login.replace('.','')
+    const login = auth.spaceName.replace("@", "");
+    const dataUser = login.replace(".", "");
     const notesRef = db.ref(`${dataUser}/notes`);
     notesRef.on("value", (elem) => {
       if (elem.val() != null) {
         dispatch(notesactioncreator(elem.val()));
       }
     });
-  }, [dispatch]);
+  }, [dispatch,auth.spaceName]);
 
   const handleConrolModal = (): void => {
     setModal(!modal);
@@ -81,10 +81,7 @@ function Notelist() {
 
       <div className={style.noteList__list}>
         {notes.items.map((item: any, index: number) => {
-          if (
-            item.title.toLowerCase().includes(searchText.toLowerCase()) ||
-            item.description.toLowerCase().includes(searchText.toLowerCase())
-          ) {
+          if (searchText === "") {
             return (
               <Note
                 key={`${index}${item.title}`}
@@ -93,7 +90,11 @@ function Notelist() {
                 description={item.description}
               />
             );
-          } else if (searchText === "") {
+          } else if (
+            item.title.toLowerCase().includes(searchText.toLowerCase()) ||
+            item.description.toLowerCase().includes(searchText.toLowerCase())
+          ) {
+            console.log('test')
             return (
               <Note
                 key={`${index}${item.title}`}
