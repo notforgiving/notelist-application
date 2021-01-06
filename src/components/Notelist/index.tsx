@@ -3,6 +3,7 @@ import style from "./style.module.css";
 import Note from "../Note";
 import Add from "../Add";
 import Exit from "../../assets/img/exit.svg";
+import Cancel from "./../../assets/img/cancel.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutactioncreactor } from "../../redux/action/login";
 import classNames from "classnames";
@@ -27,6 +28,10 @@ function Notelist() {
 
   const handleConrolModal = (): void => {
     setModal(!modal);
+  };
+
+  const handleClearSearchText = (): void => {
+    setSearchText("");
   };
 
   const handleSearch = (e: any): void => {
@@ -60,6 +65,16 @@ function Notelist() {
           onChange={handleSearch}
           value={searchText}
         />
+        {searchText != "" ? (
+          <button
+            onClick={handleClearSearchText}
+            className={style.noteList__cancel}
+          >
+            <img src={Cancel} alt="cancel" />
+          </button>
+        ) : (
+          ""
+        )}
       </div>
 
       <div className={style.noteList__list}>

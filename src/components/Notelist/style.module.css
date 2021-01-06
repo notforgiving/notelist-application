@@ -21,6 +21,22 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+}
+
+.noteList__cancel{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-58%);
+  opacity: 0.2;
 }
 
 .noteList__searchInput {
