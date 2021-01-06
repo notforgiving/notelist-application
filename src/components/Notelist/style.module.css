@@ -98,6 +98,9 @@
   font-size: 20px;
   transition: 0.3s;
   transform: translateX(50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .noteList__addNote:hover {
