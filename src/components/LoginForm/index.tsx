@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import firebase from "firebase";
 
@@ -15,6 +15,7 @@ function Loginform() {
   const [action, setAction] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
   const [errorPassword, setErrorPassword] = useState(false);
+  useEffect(() => {}, [action]);
 
   const enterInAccaunt = (): void => {
     firebase
@@ -27,7 +28,6 @@ function Loginform() {
         } else if (error.message.includes("no user")) {
           setErrorEmail(error);
         }
-        console.log(error);
       });
   };
 
@@ -50,7 +50,6 @@ function Loginform() {
         } else if (error.message.includes("email")) {
           setErrorEmail(error);
         }
-        console.log(error);
       });
   };
 

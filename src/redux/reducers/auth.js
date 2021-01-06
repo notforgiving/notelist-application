@@ -1,5 +1,5 @@
 const initialState = {
-  login: localStorage.getItem('auth'),
+  login: JSON.parse(localStorage.getItem('auth')),
 };
 
 const auth = (state = initialState, action) => {
