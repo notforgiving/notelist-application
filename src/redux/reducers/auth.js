@@ -1,5 +1,7 @@
 const initialState = {
-  login: JSON.parse(localStorage.getItem("auth")),
+  login: localStorage.getItem("spaceName")
+    ? JSON.parse(localStorage.getItem("auth"))
+    : false,
   spaceName: localStorage.getItem("spaceName")
     ? localStorage.getItem("spaceName")
     : null,
