@@ -65,7 +65,7 @@ function Notelist() {
           onChange={handleSearch}
           value={searchText}
         />
-        {searchText != "" ? (
+        {searchText !== "" ? (
           <button
             onClick={handleClearSearchText}
             className={style.noteList__cancel}
