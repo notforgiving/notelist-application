@@ -33,9 +33,9 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 50%;
+  top: 6px;
   right: 30px;
-  transform: translateY(-58%);
+  transform: translateY(17%);
   opacity: 0.2;
 }
 

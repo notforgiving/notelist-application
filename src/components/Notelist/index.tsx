@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
-import style from "./style.module.css";
-import Note from "../Note";
-import Add from "../Add";
-import Exit from "../../assets/img/exit.svg";
-import Cancel from "./../../assets/img/cancel.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutactioncreactor } from "../../redux/action/login";
 import classNames from "classnames";
 import firebase from "firebase";
+
+import Note from "../Note";
+import Add from "../Add";
+
+import { logoutactioncreactor } from "../../redux/action/login";
 import { notesactioncreator } from "./../../redux/action/setnotes";
+
+import Exit from "../../assets/img/exit.svg";
+import Cancel from "./../../assets/img/cancel.svg";
+
+import style from "./style.module.css";
 
 function Notelist() {
   const dispatch = useDispatch();
@@ -26,7 +30,7 @@ function Notelist() {
         dispatch(notesactioncreator(elem.val()));
       }
     });
-  }, [dispatch,auth.spaceName]);
+  }, [dispatch, auth.spaceName]);
 
   const handleConrolModal = (): void => {
     setModal(!modal);
@@ -94,7 +98,6 @@ function Notelist() {
             item.title.toLowerCase().includes(searchText.toLowerCase()) ||
             item.description.toLowerCase().includes(searchText.toLowerCase())
           ) {
-            console.log('test')
             return (
               <Note
                 key={`${index}${item.title}`}

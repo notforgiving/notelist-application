@@ -1,11 +1,8 @@
 import Time from "../Time";
-import style from "./style.module.css";
 
-interface iNoteProps {
-  title: string;
-  date: number;
-  description: string;
-}
+import {iNoteProps} from './../../typing/intefaces';
+
+import style from "./style.module.css";
 
 function Note({ title, date, description }: iNoteProps) {
   const dateinvalue = new Date(((date + 3 * 3600)*1000));

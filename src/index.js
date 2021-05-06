@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import "./index.css";
+import { Provider } from "react-redux";
+
 import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
-import { Provider } from "react-redux";
+
 import store from "./redux/store";
+import App from "./App";
+
+import "./index.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCLL1slmR7bSnWgr6rrF0WTICOxh-8XhgE",
